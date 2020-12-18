@@ -35,6 +35,8 @@ namespace API
                 options.UseSqlite(this.config.GetConnectionString("DefaultConnection"));
             });
             services.AddControllers();
+            //Obligatoire quand front et back proviennent pas du même endroit
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -54,6 +56,9 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //Obligatoire quand front et back n'ont pas la même origine
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
             app.UseAuthorization();
 
