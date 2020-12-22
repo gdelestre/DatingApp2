@@ -1,0 +1,25 @@
+<h4>Erreur de serveur. Veuillez rafraichir la page</h4>>
+<ng-container *ngIf="error">
+    <h5 class="text-danger">Error: {{error.message}}</h5>
+    <p class="font-weight-bold">Info : Si vous voyez ceci, angular n'est pas responsable!</p>
+    <p>C'est quoi la suite?</p>
+    <ol>
+        <li>
+            Presser F12
+        </li>
+        <li>
+            Regarder dans "Network"
+        </li>
+        <li>
+            Chercher l'erreur
+        </li>
+        <li>
+            Examiner la requête URL - make sure it is correct
+        </li>
+        <li>
+            Reproduiser l'erreur dans Postman par exemple (Si vous voyez le même soucis, le soucis ne vient pas
+            d'Angular)
+        </li>
+    </ol>
+    <code class="mt-5" style="background-color: white;">{{error.details}}</code>
+</ng-container>
